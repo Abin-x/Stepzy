@@ -83,25 +83,25 @@ function Header() {
               <NavLink to="/account">Account</NavLink>
             </div>
           </div>
-          <SearchModal />
 
-          {/* Search */}
-          {/* <form className="search-form" onSubmit={handleSearchSubmit}>
-            <i className="fas fa-search"></i>
-            <button type="submit">Search</button>
-          </form> */}
+          {/* Search input inside menu (mobile view) */}
+          {menuOpen && (
+            <form className="mobile-search-form" onSubmit={handleSearchSubmit}>
+              <input
+                type="text"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                placeholder="Search..."
+              />
+              <button type="submit">Go</button>
+            </form>
+          )}
         </div>
 
         {/* Icons */}
         <div className="header-icons">
-          {/* <div className="icon-group hide-on-mobile">
-            <NavLink to="/cart">
-              <i className="fa-solid fa-cart-shopping"></i>
-            </NavLink>
-            <NavLink to="/wishlist">
-              <i className="fa-solid fa-heart"></i>
-            </NavLink>
-          </div> */}
+          {/* Hide Search Icon when menu is open */}
+          {!menuOpen && <SearchModal />}
 
           {/* Account Dropdown */}
           <div
