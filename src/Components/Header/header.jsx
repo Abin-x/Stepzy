@@ -11,6 +11,7 @@ function Header() {
 
   const menuRef = useRef(null);
   const accountRef = useRef(null);
+  const dropdownRef = useRef(null);
 
   const toggleMenu = () => {
     setMenuOpen(prev => {
@@ -32,8 +33,11 @@ function Header() {
     });
   };
 
-  const toggleDropdown = () => {
+  const toggleDropdown = e => {
+    e.stopPropagation();
     setDropdownOpen(prev => !prev);
+    setAccountOpen(false);
+    // Don't close menu when toggling dropdown
   };
 
   const closeAllMenus = () => {
@@ -52,7 +56,8 @@ function Header() {
     const handleClickOutside = e => {
       if (
         !menuRef.current?.contains(e.target) &&
-        !accountRef.current?.contains(e.target)
+        !accountRef.current?.contains(e.target) &&
+        !dropdownRef.current?.contains(e.target)
       ) {
         closeAllMenus();
       }
@@ -81,35 +86,46 @@ function Header() {
           className={`header-links ${menuOpen ? 'active' : ''}`}
           onClick={e => {
             const tag = e.target.tagName.toLowerCase();
-            if (
-              tag === 'input' ||
-              tag === 'button' ||
-              e.target.closest('form')
-            ) {
+            const isFormElement =
+              tag === 'input' || tag === 'button' || e.target.closest('form');
+
+            const isDropdown = e.target.closest('.pages-dropdown');
+
+            if (isFormElement || isDropdown) {
               return;
             }
+
             setMenuOpen(false);
           }}
         >
-          <NavLink to="#home">Home</NavLink>
+          <NavLink to="/">Home</NavLink>
           <NavLink to="#shop">Shop</NavLink>
           <NavLink to="#about">About</NavLink>
           <NavLink to="#contact">Contact</NavLink>
 
           {/* Pages Dropdown */}
-          <div className="pages-dropdown" onClick={toggleDropdown}>
+          <div
+            className="pages-dropdown"
+            onClick={toggleDropdown}
+            ref={dropdownRef}
+          >
             <span className="pages-toggle">Pages ▾</span>
             <div className={`pages-menu ${dropdownOpen ? 'show' : ''}`}>
-              <NavLink to="/cart">Cart</NavLink>
-              <NavLink to="/wishlist">Wishlist</NavLink>
-              <NavLink to="/account">Account</NavLink>
+              <NavLink to="/cart" onClick={() => setMenuOpen(false)}>
+                Cart
+              </NavLink>
+              <NavLink to="/wishlist" onClick={() => setMenuOpen(false)}>
+                Wishlist
+              </NavLink>
+              <NavLink to="/account" onClick={() => setMenuOpen(false)}>
+                Account
+              </NavLink>
             </div>
           </div>
         </div>
 
         {/* Icons */}
         <div className="header-icons">
-          {/* {!menuOpen && <SearchModal />} */}
           <SearchModal />
 
           <div
@@ -119,15 +135,16 @@ function Header() {
           >
             <i className="fas fa-user icon"></i>
             <div className={`dropdown-menu ${accountOpen ? 'show' : ''}`}>
-              <NavLink to="#login" onClick={() => setAccountOpen(false)}>
+              <NavLink to="#login" onClick={() => setMenuOpen(false)}>
                 Login
               </NavLink>
-              <NavLink to="#profile" onClick={() => setAccountOpen(false)}>
+              <NavLink to="#profile" onClick={() => setMenuOpen(false)}>
                 Profile
               </NavLink>
-              <NavLink to="#settings" onClick={() => setAccountOpen(false)}>
+              <NavLink to="#settings" onClick={() => setMenuOpen(false)}>
                 Account
               </NavLink>
+              
             </div>
           </div>
         </div>

@@ -21,6 +21,7 @@
   justify-content: space-between;
   gap: 50px;
   position: relative;
+  flex-wrap: wrap;
 }
 
 .header-logo {
@@ -93,23 +94,37 @@
 
 .pages-menu {
   display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-self: center;
+  position: absolute;
+  top: 30px;
+  left: 0;
+  background: #000000;
+  border-radius: 6px;
+  z-index: 100;
+  /* min-width: 160px; */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  padding: 8px 0;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  pointer-events: none;
 }
 
 .pages-menu.show {
   display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: 30px;
-  background: #111;
-  border-radius: 6px;
-  z-index: 10;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 .pages-menu a {
   color: white;
-  padding: 8px 20px;
+  padding: 10px 20px;
   text-decoration: none;
   font-size: 16px;
+  white-space: nowrap;
 }
 
 .pages-menu a:hover {
@@ -163,7 +178,7 @@
 
 .dropdown-menu {
   position: absolute;
-  top: 40px;
+  top: 65px;
   right: 0;
   background-color: #111;
   border-radius: 5px;
@@ -172,7 +187,8 @@
   pointer-events: none;
   transform: translateY(-10px);
   transition: all 0.3s ease;
-  z-index: 10;
+  z-index: 100;
+  min-width: 150px;
 }
 
 .dropdown-menu.show {
@@ -227,8 +243,6 @@
 /* Mobile Styles */
 @media (max-width: 768px) {
   .header-navbar {
-    flex-wrap: wrap;
-    gap: 10px;
     justify-content: space-between;
   }
 
@@ -251,7 +265,7 @@
     transform-origin: top;
     pointer-events: none;
     transition: all 0.5s ease-in-out;
-    z-index: 9;
+    z-index: 99;
   }
 
   .header-links.active {
@@ -266,9 +280,30 @@
     margin: 10px 0;
   }
 
+  .pages-menu {
+    position: static;
+    transform: none;
+    opacity: 1;
+    background-color: transparent;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .pages-menu.show {
+    display: flex;
+  }
+
+  .pages-menu a {
+    padding: 8px 0;
+    color: #fff;
+  }
+
+  .pages-menu a:hover {
+    background-color: transparent;
+    text-decoration: underline;
+  }
+
   .hide-on-mobile {
     display: none;
   }
-
- 
 }
