@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 import './header.css';
-import SearchModal from '../SearchModal/searchMod   al.jsx';
+import SearchModal from '../SearchModal/searchModal.jsx';
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
