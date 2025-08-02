@@ -13,7 +13,7 @@ function Header() {
   const accountRef = useRef(null);
 
   const toggleMenu = () => {
-    setMenuOpen((prev) => {
+    setMenuOpen(prev => {
       if (!prev) {
         setAccountOpen(false);
         setDropdownOpen(false);
@@ -23,7 +23,7 @@ function Header() {
   };
 
   const toggleAccount = () => {
-    setAccountOpen((prev) => {
+    setAccountOpen(prev => {
       if (!prev) {
         setMenuOpen(false);
         setDropdownOpen(false);
@@ -33,7 +33,7 @@ function Header() {
   };
 
   const toggleDropdown = () => {
-    setDropdownOpen((prev) => !prev);
+    setDropdownOpen(prev => !prev);
   };
 
   const closeAllMenus = () => {
@@ -42,14 +42,14 @@ function Header() {
     setDropdownOpen(false);
   };
 
-  const handleSearchSubmit = (e) => {
+  const handleSearchSubmit = e => {
     e.preventDefault();
     console.log('Searching for:', searchTerm);
     setSearchTerm('');
   };
 
   useEffect(() => {
-    const handleClickOutside = (e) => {
+    const handleClickOutside = e => {
       if (
         !menuRef.current?.contains(e.target) &&
         !accountRef.current?.contains(e.target)
@@ -79,7 +79,7 @@ function Header() {
         {/* Nav Links */}
         <div
           className={`header-links ${menuOpen ? 'active' : ''}`}
-          onClick={(e) => {
+          onClick={e => {
             const tag = e.target.tagName.toLowerCase();
             if (
               tag === 'input' ||
@@ -105,24 +105,12 @@ function Header() {
               <NavLink to="/account">Account</NavLink>
             </div>
           </div>
-
-          {/* Mobile Search Input */}
-          {menuOpen && (
-            <form className="mobile-search-form" onSubmit={handleSearchSubmit}>
-              <input
-                type="text"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                placeholder="Search..."
-              />
-              <button type="submit">Go</button>
-            </form>
-          )}
         </div>
 
         {/* Icons */}
         <div className="header-icons">
-          {!menuOpen && <SearchModal />}
+          {/* {!menuOpen && <SearchModal />} */}
+          <SearchModal />
 
           <div
             className="dropdown-account"
