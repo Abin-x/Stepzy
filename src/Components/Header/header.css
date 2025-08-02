@@ -21,6 +21,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 200px;
   position: relative;
 }
 
@@ -29,8 +30,8 @@
   font-size: 24px;
   font-weight: bold;
   color: #fff;
-  flex: 1;
-  text-align: center;
+  /* flex: 1; */
+  /* text-align: center; */
 }
 
 /* Hamburger Icon */
@@ -98,6 +99,7 @@
 .header-links {
   display: flex;
   gap: 30px;
+  /* flex: 1; */
 }
 
 .header-links a {
@@ -165,11 +167,8 @@
     transform: translateY(-10px) rotateX(-90deg);
     transform-origin: top;
     pointer-events: none;
-    transition:
-      max-height 0.6s ease-in-out,
-      opacity 0.6s ease-in-out,
-      transform 0.6s ease-in-out,
-      padding 0.6s ease-in-out;
+    transition: max-height 0.6s ease-in-out, opacity 0.6s ease-in-out,
+      transform 0.6s ease-in-out, padding 0.6s ease-in-out;
   }
 
   .header-links.active {
@@ -182,5 +181,61 @@
 
   .header-links a {
     margin: 10px 0;
+  }
+}
+
+/* Responsive Menu */
+@media (max-width: 768px) {
+  .header-navbar {
+    justify-content: space-between;
+    padding: 0 10px;
+  }
+
+  .hamburger-icon {
+    display: block;
+  }
+
+  .header-logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .account-icon {
+    position: absolute;
+    right: 10px;
+  }
+
+  .header-links {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.95);
+    position: absolute;
+    top: 60px;
+    left: 0;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transform: rotateX(-90deg);
+    transform-origin: top;
+    pointer-events: none;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .header-links.active {
+    max-height: 300px;
+    opacity: 1;
+    transform: rotateX(0deg);
+    padding: 20px;
+    pointer-events: auto;
+  }
+
+  .header-links a {
+    margin: 10px 0;
+  }
+
+  .account-dropdown {
+    right: 10px;
   }
 }
