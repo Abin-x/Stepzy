@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './header.css';
 import { NavLink } from 'react-router-dom';
-import { FaBars, FaTimes } from 'react-icons/fa';
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -23,11 +22,7 @@ function Header() {
           className={`hamburger-icon ${menuOpen ? 'open' : ''}`}
           onClick={toggleMenu}
         >
-          {menuOpen ? (
-            <FaTimes className="icon" />
-          ) : (
-            <FaBars className="icon" />
-          )}
+          <i className={`fas ${menuOpen ? 'fa-times' : 'fa-bars'} icon`}></i>
         </div>
 
         <div
