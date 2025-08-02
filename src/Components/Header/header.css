@@ -1,4 +1,4 @@
-/* Global Reset */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -9,35 +9,99 @@
 .header-container {
   width: 100%;
   background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-  padding: 20px 40px;
+  padding: 16px 24px;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 999;
 }
 
-/* Navbar Layout */
+/* Navbar Flex Layout */
 .header-navbar {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  position: relative;
 }
 
-/* Logo Styling */
+/* Logo */
 .header-logo {
   font-size: 24px;
   font-weight: bold;
+  color: #fff;
+  flex: 1;
+  text-align: center;
+}
+
+/* Hamburger Icon */
+.hamburger-icon {
+  display: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.hamburger-icon .icon {
+  font-size: 26px;
+  color: #ffffff;
+  transition: transform 0.5s ease;
+}
+
+.hamburger-icon.open .icon {
+  transform: rotateY(180deg);
+}
+
+/* Account Dropdown */
+.dropdown-account {
+  position: relative;
+  cursor: pointer;
+}
+
+.dropdown-account .icon {
+  font-size: 24px;
   color: #ffffff;
 }
 
-/* Navigation Links */
+.dropdown-menu {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background-color: #111;
+  border-radius: 5px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.dropdown-menu.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 20px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  border-bottom: 1px solid #333;
+}
+
+.dropdown-menu a:hover {
+  background-color: #333;
+}
+
+/* Header Links */
 .header-links {
   display: flex;
   gap: 30px;
 }
 
 .header-links a {
-  color: #ffffff;
+  color: #fff;
   text-decoration: none;
   font-size: 18px;
   position: relative;
@@ -63,34 +127,27 @@
   width: 100%;
 }
 
-/* Hamburger Icon */
-.hamburger-icon {
-  display: none;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.hamburger-icon .icon {
-  font-size: 26px;
-  color: #ffffff;
-  display: inline-block;
-  transform: rotateY(0deg);
-  transition: transform 0.5s ease, opacity 0.5s ease;
-}
-
-.hamburger-icon.open .icon {
-  transform: rotateY(180deg);
-  opacity: 0.9;
-}
-
-/* Mobile Styles */
+/* Mobile Responsive */
 @media (max-width: 768px) {
   .header-navbar {
     flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
   }
 
   .hamburger-icon {
     display: block;
+    order: 1;
+  }
+
+  .header-logo {
+    order: 2;
+    flex: none;
+    font-size: 22px;
+  }
+
+  .dropdown-account {
+    order: 3;
   }
 
   .header-links {
