@@ -1,0 +1,129 @@
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Header Container */
+.header-container {
+  width: 100%;
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  padding: 20px 40px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+
+/* Navbar Layout */
+.header-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo Styling */
+.header-logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+/* Navigation Links */
+.header-links {
+  display: flex;
+  gap: 30px;
+}
+
+.header-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 18px;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.header-links a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background-color: #00ffff;
+  left: 0;
+  bottom: -5px;
+  transition: 0.3s;
+}
+
+.header-links a:hover {
+  color: #00ffff;
+}
+
+.header-links a:hover::after {
+  width: 100%;
+}
+
+/* Hamburger Icon */
+.hamburger-icon {
+  display: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+/* Icon style and animation */
+.hamburger-icon .icon {
+  font-size: 26px;
+  color: #ffffff;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hamburger-icon.open .icon {
+  transform: rotate(90deg) scale(1.1);
+  opacity: 0.9;
+}
+
+/* Mobile Styles */
+/* Mobile Dropdown with animation */
+@media (max-width: 768px) {
+  .header-navbar {
+    flex-wrap: wrap;
+  }
+
+  .hamburger-icon {
+    display: block;
+  }
+
+  .header-links {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.95);
+    position: absolute;
+    top: 70px;
+    left: 0;
+    padding: 0 20px;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+
+    transition:
+      max-height 0.5s ease-in-out,
+      opacity 0.5s ease-in-out,
+      transform 0.5s ease-in-out,
+      padding 0.5s ease-in-out;
+  }
+
+  .header-links.active {
+    max-height: 300px; /* Adjust height as needed */
+    padding: 20px;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .header-links a {
+    margin: 5px 0;
+  }
+}
