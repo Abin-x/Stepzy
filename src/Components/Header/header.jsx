@@ -17,7 +17,7 @@ function Header() {
   return (
     <div className="header-container">
       <div className="header-navbar">
-        <div className="header-logo">Logo</div>
+        <div className="header-logo">Stepzy</div>
 
         <div
           className={`hamburger-icon ${menuOpen ? 'open' : ''}`}
