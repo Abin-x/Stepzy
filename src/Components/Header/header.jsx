@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 import './header.css';
-import SearchModal from '../SearchModal/searchModal.jsx';
+import SearchModal from '../SearchModal/searchModal';
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [accountOpen, setAccountOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
 
   const menuRef = useRef(null);
@@ -13,21 +14,32 @@ function Header() {
 
   const toggleMenu = () => {
     setMenuOpen((prev) => {
-      if (!prev) setAccountOpen(false);
+      if (!prev) {
+        setAccountOpen(false);
+        setDropdownOpen(false);
+      }
       return !prev;
     });
   };
 
   const toggleAccount = () => {
     setAccountOpen((prev) => {
-      if (!prev) setMenuOpen(false);
+      if (!prev) {
+        setMenuOpen(false);
+        setDropdownOpen(false);
+      }
       return !prev;
     });
+  };
+
+  const toggleDropdown = () => {
+    setDropdownOpen((prev) => !prev);
   };
 
   const closeAllMenus = () => {
     setMenuOpen(false);
     setAccountOpen(false);
+    setDropdownOpen(false);
   };
 
   const handleSearchSubmit = (e) => {
@@ -67,7 +79,17 @@ function Header() {
         {/* Nav Links */}
         <div
           className={`header-links ${menuOpen ? 'active' : ''}`}
-          onClick={() => setMenuOpen(false)}
+          onClick={(e) => {
+            const tag = e.target.tagName.toLowerCase();
+            if (
+              tag === 'input' ||
+              tag === 'button' ||
+              e.target.closest('form')
+            ) {
+              return;
+            }
+            setMenuOpen(false);
+          }}
         >
           <NavLink to="#home">Home</NavLink>
           <NavLink to="#shop">Shop</NavLink>
@@ -75,16 +97,16 @@ function Header() {
           <NavLink to="#contact">Contact</NavLink>
 
           {/* Pages Dropdown */}
-          <div className="pages-dropdown">
+          <div className="pages-dropdown" onClick={toggleDropdown}>
             <span className="pages-toggle">Pages ▾</span>
-            <div className="pages-menu">
+            <div className={`pages-menu ${dropdownOpen ? 'show' : ''}`}>
               <NavLink to="/cart">Cart</NavLink>
               <NavLink to="/wishlist">Wishlist</NavLink>
               <NavLink to="/account">Account</NavLink>
             </div>
           </div>
 
-          {/* Search input inside menu (mobile view) */}
+          {/* Mobile Search Input */}
           {menuOpen && (
             <form className="mobile-search-form" onSubmit={handleSearchSubmit}>
               <input
@@ -100,10 +122,8 @@ function Header() {
 
         {/* Icons */}
         <div className="header-icons">
-          {/* Hide Search Icon when menu is open */}
           {!menuOpen && <SearchModal />}
 
-          {/* Account Dropdown */}
           <div
             className="dropdown-account"
             onClick={toggleAccount}
