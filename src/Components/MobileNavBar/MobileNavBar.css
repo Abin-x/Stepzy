@@ -36,7 +36,7 @@
   }
 
   /* Optional: Simulated swipe indicator */
-  .mobile-bottom-nav::after {
+  /* .mobile-bottom-nav::after {
     content: "";
     position: absolute;
     bottom: 3px;
@@ -46,5 +46,5 @@
     height: 4px;
     background: #888;
     border-radius: 4px;
-  }
+  } */
 }

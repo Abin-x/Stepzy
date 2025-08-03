@@ -9,7 +9,6 @@ function MobileNavBar() {
         <i className="fas fa-home"></i>
         <span>Home</span>
       </NavLink>
-      
       <NavLink to="/shop" className="nav-item">
         <i className="fas fa-shop"></i>
         <span>Shop</span>
