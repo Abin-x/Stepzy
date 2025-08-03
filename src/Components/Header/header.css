@@ -4,7 +4,7 @@
   padding: 0;
   box-sizing: border-box;
 }
-/* 
+
 .header-container {
   width: 100%;
   background: linear-gradient(to right, #8e9eab,#eef2f3);
@@ -13,9 +13,9 @@
   top: 0;
   left: 0;
   z-index: 999;
-} */
+}
 
-.header-container {
+/* .header-container {
   width: 100%;
   background: transparent;
   padding: 16px 24px;
@@ -23,7 +23,7 @@
   top: 0;
   left: 0;
   z-index: 999;
-}
+} */
 
 
 .header-navbar {
