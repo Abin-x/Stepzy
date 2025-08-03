@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './SearchModal.css';
+import './searchModal.css';
 
 function SearchModal() {
   const [showModal, setShowModal] = useState(false);
