@@ -1,0 +1,50 @@
+.mobile-bottom-nav {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-bottom-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #fff;
+    border-top: 1px solid #ccc;
+    z-index: 1000;
+    padding: 8px 0;
+  }
+
+  .mobile-bottom-nav .nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 12px;
+    color: #000;
+    text-decoration: none;
+  }
+
+  .mobile-bottom-nav .nav-item i {
+    font-size: 18px;
+    margin-bottom: 4px;
+  }
+
+  .mobile-bottom-nav .nav-item.active {
+    color: teal;
+    font-weight: bold;
+  }
+
+  /* Optional: Simulated swipe indicator */
+  .mobile-bottom-nav::after {
+    content: "";
+    position: absolute;
+    bottom: 3px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30%;
+    height: 4px;
+    background: #888;
+    border-radius: 4px;
+  }
+}
