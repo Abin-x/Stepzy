@@ -1,52 +1,135 @@
-.search-icon-button {
-  background: none;
-  border: none;
-  font-size: 20px;
-  cursor: pointer;
-  color: #fff;
-  
+.search-bar-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 200px;
 }
 
-.search-modal-overlay {
+.search-input {
+  width: 100%;
+  padding: 8px 32px 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  outline: none;
+  font-size: 14px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.search-icon {
+  position: absolute;
+  right: 10px;
+  color: #555;
+  cursor: pointer;
+}
+
+/* Modal Styling */
+.modal-backdrop {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.6);
+  background: rgba(0,0,0,0.6);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
+  z-index: 999;
 }
 
-.search-modal {
-  background-color: #fff;
+.modal-content {
+  background: white;
   padding: 20px 30px;
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
 }
 
-.search-form {
-  display: flex;
-  gap: 10px;
-}
-
-.search-form input {
-  padding: 6px 12px;
-  font-size: 16px;
-  border-radius: 4px;
+.modal-search-input {
+  width: 100%;
+  padding: 10px;
+  margin: 15px 0;
+  border-radius: 6px;
   border: 1px solid #ccc;
-  width: 200px;
-  
+  font-size: 16px;
 }
 
-.search-form button {
-  background-color: #333;
-  color: white;
+.modal-content button {
+  padding: 8px 20px;
+  background: teal;
   border: none;
-  padding: 6px 12px;
-  border-radius: 4px;
+  color: white;
+  border-radius: 6px;
   cursor: pointer;
-  font-size: 16px;
+  font-weight: bold;
+}
+
+.modal-content button:hover {
+  background: #008080;
+}
+
+/* Base styles are already provided above */
+
+@media (max-width: 768px) {
+  .search-bar-container {
+    width: 100%;
+    margin: 10px auto;
+  }
+
+  .search-input {
+    font-size: 16px;
+    padding: 10px 36px 10px 14px;
+  }
+
+  .search-icon {
+    right: 12px;
+    font-size: 18px;
+  }
+
+  .modal-content {
+    width: 90%;
+    padding: 18px 20px;
+  }
+
+  .modal-search-input {
+    font-size: 15px;
+    padding: 10px;
+  }
+
+  .modal-content h3 {
+    font-size: 20px;
+  }
+
+  .modal-content button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-input {
+    font-size: 14px;
+    padding: 10px 36px 10px 12px;
+  }
+
+  .modal-content {
+    padding: 16px;
+  }
+
+  .modal-content h3 {
+    font-size: 18px;
+  }
+
+  .modal-search-input {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .modal-content button {
+    font-size: 14px;
+    padding: 8px;
+  }
 }

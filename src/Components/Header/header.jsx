@@ -70,13 +70,13 @@ function Header() {
     <div className="header-container">
       <div className="header-navbar">
         {/* Hamburger */}
-        <div
+        {/* <div
           className={`hamburger-icon ${menuOpen ? 'open' : ''}`}
           onClick={toggleMenu}
           ref={menuRef}
         >
           <i className={`fas ${menuOpen ? 'fa-times' : 'fa-bars'} icon`}></i>
-        </div>
+        </div> */}
 
         {/* Logo */}
         <div className="header-logo">Stepzy</div>
