@@ -144,7 +144,6 @@ function Header() {
               <NavLink to="#settings" onClick={() => setMenuOpen(false)}>
                 Account
               </NavLink>
-              
             </div>
           </div>
         </div>

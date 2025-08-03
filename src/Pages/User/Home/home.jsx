@@ -12,6 +12,9 @@ const Home = () => {
     <div className="home-banner-img">
         <img src="/img/nike-trainers-running-shoes.jpg" alt="Home Banner" />
       </div>
+    <div className="home-banner-img">
+        <img src="/img/nike-trainers-running-shoes.jpg" alt="Home Banner" />
+      </div>
     </>
   );
 };
