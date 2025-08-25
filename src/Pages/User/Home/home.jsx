@@ -5,15 +5,27 @@ const Home = () => {
   return (
     <>
      <div className="home-container">
-  <div className="home-banner-img">
-    <img
-      src="/img/red_yellow_nike_shoe_in_black_background_4k_8k_hd_nike-3840x2160.jpg"
-      alt="Home Banner"
-    />
-    <div className="home-banner-overlay">
-      <h1>Step Into Style</h1>
-      <p>Find the perfect pair for your next move</p>
-      <button className="shop-now-btn">Shop Now</button>
+  <div className="home-banner">
+    <div className="home-text">
+      <h1>Make Your <br /> Style</h1>
+      <p>
+        Stand out with Nike shoes <br />
+        that make your style more premium
+      </p>
+      <h3>
+        Start from <span className="price">₹4,999</span>
+      </h3>
+      <div className="home-buttons">
+        <button className="btn-outline">More Products</button>
+        <button className="btn-filled">Shop Now</button>
+      </div>
+    </div>
+
+    <div className="home-image">
+      <img
+        src="/img/red_yellow_nike_shoe_in_black_background_4k_8k_hd_nike-3840x2160.jpg"
+        alt="Nike Shoe"
+      />
     </div>
   </div>
 </div>
