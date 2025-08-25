@@ -5,6 +5,7 @@ import Header from './Components/Header/header.jsx'
 import MobileNavBar from './Components/MobileNavBar/MobileNavBar.jsx'
 import Home from './Pages/User/Home/home'
 import UserLogin from './Components/Auth/User/userLogin.jsx'
+import UserSignUp from './Components/Auth/User/userSignup.jsx'
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
         {/* <Route path="#about" element={<About />} />
         <Route path="#contact" element={<Contact />} /> */}
         <Route path="/login" element={<UserLogin />} />
+        <Route path="/signup" element={<UserSignUp />} />
       </Routes>
       <MobileNavBar />
     </div>
