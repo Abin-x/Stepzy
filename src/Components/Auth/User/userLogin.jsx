@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';  // <-- Added Link
 import axios from 'axios';
 import './userLogin.css';
 
@@ -64,7 +64,7 @@ const UserLogin = () => {
   return (
     <div className="user-login-container">
       <div className="user-login-box">
-        <h2>Sign In</h2>
+        <h2>Welcome Back User</h2>
         <form onSubmit={handleSubmit}>
           <input
             ref={emailRef}
@@ -91,10 +91,14 @@ const UserLogin = () => {
 
           <button type="submit">Login</button>
         </form>
+
+        {/* Create Account Link */}
+        <p className="signup-link">
+          Don’t have an account? <Link to="/signup">Create one</Link>
+        </p>
       </div>
     </div>
   );
 };
 
 export default UserLogin;
-    

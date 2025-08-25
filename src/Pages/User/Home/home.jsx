@@ -1,37 +1,48 @@
-import React from 'react';
-import './home.css';
+import React, { useState } from "react";
+import "./home.css";
+
+const images = [
+  "/img/jordan-shoes-4k-ficsl92tmk28ie8v.jpg",
+  "/img/nike-trainers-running-shoes.jpg",
+  "/img/red_yellow_nike_shoe_in_black_background_4k_8k_hd_nike-3840x2160.jpg"
+];
 
 const Home = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+  };
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+  };
+
   return (
-    <>
-     <div className="home-container">
-  <div className="home-banner">
-    <div className="home-text">
-      <h1>Make Your <br /> Style</h1>
-      <p>
-        Stand out with Nike shoes <br />
-        that make your style more premium
-      </p>
-      <h3>
-        Start from <span className="price">₹4,999</span>
-      </h3>
-      <div className="home-buttons">
-        <button className="btn-outline">More Products</button>
-        <button className="btn-filled">Shop Now</button>
+    <div className="home-container">
+      <div
+        className="home-banner"
+        style={{ backgroundImage: `url(${images[currentIndex]})` }}
+      >
+        {/* Overlay */}
+        <div className="overlay"></div>
+
+        {/* Text */}
+        <div className="home-text">
+          <h4>Step into shoe style</h4>
+          <h1>Discover limited sneakers without limitations</h1>
+          <button className="checkout-btn">Shop Now</button>
+        </div>
+
+        {/* Manual buttons */}
+        <button className="arrow left" onClick={prevSlide}>
+          ❮
+        </button>
+        <button className="arrow right" onClick={nextSlide}>
+          ❯
+        </button>
       </div>
     </div>
-
-    <div className="home-image">
-      <img
-        src="/img/red_yellow_nike_shoe_in_black_background_4k_8k_hd_nike-3840x2160.jpg"
-        alt="Nike Shoe"
-      />
-    </div>
-  </div>
-</div>
-
-     
-    </>
   );
 };
 
