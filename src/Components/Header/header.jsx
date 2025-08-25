@@ -135,7 +135,7 @@ function Header() {
           >
             <i className="fas fa-user icon"></i>
             <div className={`dropdown-menu ${accountOpen ? 'show' : ''}`}>
-              <NavLink to="#login" onClick={() => setMenuOpen(false)}>
+              <NavLink to="/login" onClick={() => setMenuOpen(false)}>
                 Login
               </NavLink>
               <NavLink to="#profile" onClick={() => setMenuOpen(false)}>
