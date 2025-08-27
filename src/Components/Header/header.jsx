@@ -71,12 +71,12 @@ function Header() {
       <div className="header-navbar">
         {/* Hamburger */}
         {/* <div
-          className={`hamburger-icon ${menuOpen ? 'open' : ''}`}
-          onClick={toggleMenu}
-          ref={menuRef}
-        >
-          <i className={`fas ${menuOpen ? 'fa-times' : 'fa-bars'} icon`}></i>
-        </div> */}
+              className={`hamburger-icon ${menuOpen ? 'open' : ''}`}
+              onClick={toggleMenu}
+              ref={menuRef}
+            >
+              <i className={`fas ${menuOpen ? 'fa-times' : 'fa-bars'} icon`}></i>
+            </div> */}
 
         {/* Logo */}
         <div className="header-logo">Stepzy</div>
@@ -102,7 +102,9 @@ function Header() {
           <NavLink to="#shop">Shop</NavLink>
           <NavLink to="#about">About</NavLink>
           <NavLink to="#contact">Contact</NavLink>
-
+          {/* <div className="searchBarDiv">
+            <SearchModal />
+          </div> */}
           {/* Pages Dropdown */}
           <div
             className="pages-dropdown"
@@ -120,13 +122,20 @@ function Header() {
               <NavLink to="/account" onClick={() => setMenuOpen(false)}>
                 Account
               </NavLink>
+              <NavLink to="/admin/dashboard" onClick={() => setMenuOpen(false)}>
+                AdminDashboard
+              </NavLink>
             </div>
           </div>
         </div>
 
+          <div className="searchBarDiv">
+            {/* <SearchModal /> */}
+          </div>
+
         {/* Icons */}
         <div className="header-icons">
-          <SearchModal />
+          <SearchModal /> 
 
           <div
             className="dropdown-account"

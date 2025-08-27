@@ -1,0 +1,179 @@
+/* ---------- Base Layout ---------- */
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+  background: #787474;
+  font-family: Arial, sans-serif;
+  position: relative;
+}
+
+/* ---------- Sidebar ---------- */
+.sidebar {
+  width: 250px;
+  background: #222;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 15px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  transition: transform 0.3s ease, width 0.3s ease;
+  z-index: 1000;
+}
+
+.logo {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.menu button {
+  background: transparent;
+  border: none;
+  color: #ccc;
+  padding: 12px 14px;
+  text-align: left;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.menu button:hover,
+.menu .active {
+  background: #444;
+  color: #fff;
+}
+
+.logout-btn {
+  background: #e63946;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: auto;
+  transition: background 0.3s;
+}
+
+.logout-btn:hover {
+  background: #d62828;
+}
+
+/* ---------- Main Content ---------- */
+.main-content {
+  flex: 1;
+  margin-left: 250px;
+  padding: 25px;
+  transition: margin-left 0.3s ease, padding 0.3s ease;
+  width: 100%;
+}
+
+/* ---------- Hamburger Button ---------- */
+.hamburger {
+  display: none;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  background: #222;
+  color: #fff;
+  border: none;
+  font-size: 22px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+/* ---------- Overlay for Mobile ---------- */
+.overlay {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .sidebar {
+    transform: translateX(-100%);
+    width: 220px;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 900;
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding: 18px;
+  }
+}
+
+@media (max-width: 600px) {
+  .sidebar {
+    width: 200px;
+    padding: 16px 12px;
+  }
+
+  .logo {
+    font-size: 18px;
+  }
+
+  .menu button {
+    font-size: 14px;
+    padding: 8px 10px;
+  }
+
+  .logout-btn {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 400px) {
+  .sidebar {
+    width: 180px;
+  }
+
+  .menu button {
+    font-size: 13px;
+    padding: 6px 8px;
+  }
+
+  .logout-btn {
+    font-size: 13px;
+    padding: 6px 8px;
+  }
+
+  .logo {
+    font-size: 14px;
+  }
+
+  .main-content {
+    padding: 12px;
+  }
+}
