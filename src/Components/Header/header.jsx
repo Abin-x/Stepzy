@@ -153,6 +153,9 @@ function Header() {
               <NavLink to="#settings" onClick={() => setMenuOpen(false)}>
                 Account
               </NavLink>
+               <NavLink to="/admin/dashboard" onClick={() => setMenuOpen(false)}>
+                AdminDashboard
+              </NavLink>
             </div>
           </div>
         </div>

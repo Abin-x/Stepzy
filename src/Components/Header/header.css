@@ -255,9 +255,9 @@
 
 /* Mobile Styles */
 @media (max-width: 768px) {
-  .dropdown-account {
-    /* display: none; */
-  }
+  /* .dropdown-account {
+    display: none;
+  } */
 
   .header-navbar {
     justify-content: space-between;
