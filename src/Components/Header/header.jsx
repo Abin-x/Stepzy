@@ -129,13 +129,11 @@ function Header() {
           </div>
         </div>
 
-          <div className="searchBarDiv">
-            {/* <SearchModal /> */}
-          </div>
+        <div className="searchBarDiv">{/* <SearchModal /> */}</div>
 
         {/* Icons */}
         <div className="header-icons">
-          <SearchModal /> 
+          <SearchModal />
 
           <div
             className="dropdown-account"
@@ -153,7 +151,7 @@ function Header() {
               <NavLink to="#settings" onClick={() => setMenuOpen(false)}>
                 Account
               </NavLink>
-               <NavLink to="/admin/dashboard" onClick={() => setMenuOpen(false)}>
+              <NavLink to="/admin/dashboard" onClick={() => setMenuOpen(false)}>
                 AdminDashboard
               </NavLink>
             </div>
