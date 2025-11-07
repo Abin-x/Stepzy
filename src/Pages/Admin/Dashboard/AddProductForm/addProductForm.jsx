@@ -10,47 +10,75 @@ const AddProductForm = () => {
     price: '',
     category: '',
     stock: '',
-    image: '',
   });
-
+  const [image, setImage] = useState(null);
+  const [preview, setPreview] = useState('');
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
 
-  // Handle input changes
-  const handleChange = e => {
+  // Handle text input changes
+  const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  // Handle image input change
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    setImage(file);
+    if (file) {
+      setPreview(URL.createObjectURL(file));
+    }
+  };
+
   // Submit form
-  const handleSubmit = async e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
-      const adminId = localStorage.getItem('adminId'); // Get admin id
+      const adminId = localStorage.getItem('adminId');
       if (!adminId) {
-        setMessage('Admin not logged in!');
-        setTimeout(() => {
-          navigate('/admin/login');
-        }, 2000);
+        setMessage('⚠️ Admin not logged in!');
+        setTimeout(() => navigate('/admin/login'), 2000);
         return;
       }
 
-      const payload = { ...formData, adminId };
+      // Create FormData for multipart upload
+      const data = new FormData();
+      data.append('name', formData.name);
+      data.append('description', formData.description);
+      data.append('price', formData.price);
+      data.append('category', formData.category);
+      data.append('stock', formData.stock);
+      data.append('adminId', adminId);
+      if (image) data.append('image', image);
 
+      // Send request to backend
       const res = await axios.post(
         'http://localhost:3000/api/products/add',
-        payload
+        data,
+        {
+          headers: { 'Content-Type': 'multipart/form-data' },
+        }
       );
+
       setMessage('✅ Product added successfully!');
       console.log(res.data);
+
+      // Reset form
       setFormData({
         name: '',
         description: '',
         price: '',
         category: '',
         stock: '',
-        image: '',
       });
+      setImage(null);
+      setPreview('');
+
+      // Optionally navigate after adding product
+      // navigate('/admin/products');
     } catch (err) {
+      console.error(err);
       setMessage('❌ ' + (err.response?.data?.error || 'Something went wrong'));
     }
   };
@@ -59,7 +87,12 @@ const AddProductForm = () => {
     <div className="add-product-container">
       <h2>Add New Product</h2>
       {message && <p className="message">{message}</p>}
-      <form onSubmit={handleSubmit} className="add-product-form">
+
+      <form
+        onSubmit={handleSubmit}
+        className="add-product-form"
+        encType="multipart/form-data"
+      >
         <input
           type="text"
           name="name"
@@ -99,13 +132,17 @@ const AddProductForm = () => {
           onChange={handleChange}
           required
         />
-        {/* <input
-          type="text"
-          name="image"
-          placeholder="Image URL"
-          value={formData.image}
-          onChange={handleChange}
-        /> */}
+
+        {/* Image upload */}
+        <input type="file" accept="image/*" onChange={handleImageChange} />
+
+        {/* Preview uploaded image */}
+        {preview && (
+          <div className="image-preview">
+            <img src={preview} alt="Preview" />
+          </div>
+        )}
+
         <button type="submit">Add Product</button>
       </form>
     </div>

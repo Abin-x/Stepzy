@@ -8,6 +8,7 @@ import UserLogin from './Components/Auth/User/userLogin.jsx';
 import UserSignUp from './Components/Auth/User/userSignup.jsx';
 import AdminLogin from './Components/Auth/Admin/adminLogin.jsx';
 import AdminSignup from './Components/Auth/Admin/adminSignup.jsx';
+import Shop from './Pages/User/Shop/shop.jsx';
 import AddProductForm from './Pages/Admin/Dashboard/AddProductForm/addProductForm.jsx';
 // import Dashboard from './Pages/Admin/Dashboard/AdminDashboard.jsx';
 import ProductList from './Pages/User/ProdcutList/productList.jsx';
@@ -25,7 +26,8 @@ const App = () => {
         <Route path="/signup" element={<UserSignUp />} />
         <Route path="/admin/login" element={<AdminLogin />} />
         <Route path="/admin/signup" element={<AdminSignup />} />
-        <Route path="/admin/add-product" element={<AddProductForm />} />
+        <Route path="/shop" element={<Shop />} />
+        <Route path="/add/product" element={<AddProductForm />} />
         <Route path="/products" element={<ProductList />} />
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
       </Routes>

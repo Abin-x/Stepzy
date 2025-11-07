@@ -99,14 +99,12 @@ function Header() {
           }}
         >
           <NavLink to="/">Home</NavLink>
-          <NavLink to="#shop">Shop</NavLink>
+          <NavLink to="/shop">Shop</NavLink>
           <NavLink to="#about">About</NavLink>
           <NavLink to="#contact">Contact</NavLink>
-          {/* <div className="searchBarDiv">
-            <SearchModal />
-          </div> */}
+         
           {/* Pages Dropdown */}
-          <div
+          {/* <div
             className="pages-dropdown"
             onClick={toggleDropdown}
             ref={dropdownRef}
@@ -126,14 +124,18 @@ function Header() {
                 AdminDashboard
               </NavLink>
             </div>
+            
+          </div> */}
+           <div className="searchBarDiv">
+            <SearchModal />
           </div>
         </div>
 
-        <div className="searchBarDiv">{/* <SearchModal /> */}</div>
+        {/* <div className="searchBarDiv"><SearchModal /></div> */}
 
         {/* Icons */}
         <div className="header-icons">
-          <SearchModal />
+          {/* <SearchModal /> */}
 
           <div
             className="dropdown-account"
