@@ -1,0 +1,162 @@
+/* src/pages/about.css */
+.about-container {
+  font-family: 'Poppins', sans-serif;
+  color: #222;
+  background-color: #f9f9f9;
+  overflow-x: hidden;
+}
+
+/* Hero Section */
+.about-hero {
+  position: relative;
+  height: 60vh;
+  background: url("/images/stepzy-banner.jpg") center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.about-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.about-hero-content {
+  position: relative;
+  text-align: center;
+  z-index: 2;
+}
+
+.about-title {
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.about-subtitle {
+  font-size: 1.3rem;
+  margin-top: 10px;
+  font-weight: 300;
+}
+
+/* Story Section */
+.about-story {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 100px;
+  gap: 50px;
+  background: #fff;
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.about-image img:hover {
+  transform: scale(1.05);
+}
+
+.about-text {
+  max-width: 600px;
+}
+
+.about-text h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #111;
+}
+
+.about-text p {
+  color: #444;
+  line-height: 1.8;
+  margin-bottom: 15px;
+}
+
+/* Mission Section */
+.about-mission {
+  text-align: center;
+  padding: 80px 60px;
+  background: linear-gradient(135deg, #e3f2fd, #f1f8e9);
+}
+
+.about-mission h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #111;
+}
+
+.about-mission p {
+  max-width: 700px;
+  margin: 0 auto 40px;
+  color: #555;
+  line-height: 1.7;
+}
+
+.mission-grid {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.mission-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 25px 20px;
+  width: 280px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mission-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.mission-card .icon {
+  font-size: 2rem;
+  color: #007b5e;
+  margin-bottom: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 1000px) {
+  .about-story {
+    flex-direction: column;
+    text-align: center;
+    padding: 60px 40px;
+  }
+
+  .about-image img {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 700px) {
+  .about-title {
+    font-size: 2.2rem;
+  }
+
+  .about-story {
+    padding: 40px 25px;
+  }
+
+  .about-mission {
+    padding: 60px 30px;
+  }
+
+  .mission-grid {
+    gap: 20px;
+  }
+}
