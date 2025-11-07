@@ -9,7 +9,7 @@ import UserSignUp from './Components/Auth/User/userSignup.jsx';
 import AdminLogin from './Components/Auth/Admin/adminLogin.jsx';
 import AdminSignup from './Components/Auth/Admin/adminSignup.jsx';
 import Shop from './Pages/User/Shop/shop.jsx';
-import AddProductForm from './Pages/Admin/Dashboard/AddProductForm/addProductForm.jsx';
+import AddProductForm from './Pages/Admin/Dashboard/AddProductForm/AddProductForm.jsx';
 import ProductList from './Pages/User/ProdcutList/productList.jsx';
 import AdminDashboard from './Pages/Admin/Dashboard/AdminDashboard.jsx';
 import About from './Pages/User/About/about.jsx';

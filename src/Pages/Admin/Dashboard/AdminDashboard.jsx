@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import AddProductForm from './AddProductForm/addProductForm.jsx';
+import AddProductForm from './AddProductForm/AddProductForm.jsx';
 import ProductList from '../../User/ProdcutList/productList.jsx';
 import './AdminDashboard.css';
 
@@ -15,7 +15,9 @@ const AdminDashboard = () => {
   return (
     <div className="dashboard-container">
       {/* Overlay for mobile menu */}
-      {menuOpen && <div className="overlay" onClick={() => setMenuOpen(false)}></div>}
+      {menuOpen && (
+        <div className="overlay" onClick={() => setMenuOpen(false)}></div>
+      )}
 
       {/* Sidebar */}
       <aside className={`sidebar ${menuOpen ? 'open' : ''}`}>
