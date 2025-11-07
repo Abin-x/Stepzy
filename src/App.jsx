@@ -8,8 +8,8 @@ import UserLogin from './Components/Auth/User/userLogin.jsx';
 import UserSignUp from './Components/Auth/User/userSignup.jsx';
 import AdminLogin from './Components/Auth/Admin/adminLogin.jsx';
 import AdminSignup from './Components/Auth/Admin/adminSignup.jsx';
-import Dashboard from './Pages/Admin/Dashboard/AddProductForm/addProductForm.jsx';
 import AddProductForm from './Pages/Admin/Dashboard/AddProductForm/addProductForm.jsx';
+// import Dashboard from './Pages/Admin/Dashboard/AdminDashboard.jsx';
 import ProductList from './Pages/User/ProdcutList/productList.jsx';
 import AdminDashboard from './Pages/Admin/Dashboard/AdminDashboard.jsx';
 
