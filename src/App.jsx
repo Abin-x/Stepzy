@@ -11,7 +11,7 @@ import AdminSignup from './Components/Auth/Admin/adminSignup.jsx';
 import Shop from './Pages/User/Shop/shop.jsx';
 // import AddProductForm from './Pages/Admin/Dashboard/AddProductForm/AddProductForm.jsx';
 import ProductList from './Pages/User/ProdcutList/productList.jsx';
-import AdminDashboard from './Pages/Admin/Dashboard/AdminDashboard.jsx';
+// import AdminDashboard from './Pages/Admin/Dashboard/AdminDashboard.jsx';
 import About from './Pages/User/About/about.jsx';
 
 const App = () => {
@@ -29,7 +29,7 @@ const App = () => {
         <Route path="/shop" element={<Shop />} />
         {/* <Route path="/add/product" element={<AddProductForm />} /> */}
         <Route path="/products" element={<ProductList />} />
-        <Route path="/admin/dashboard" element={<AdminDashboard />} />
+        {/* <Route path="/admin/dashboard" element={<AdminDashboard />} /> */}
       </Routes>
       <MobileNavBar />
     </div>
