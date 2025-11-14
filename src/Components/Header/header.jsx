@@ -100,11 +100,12 @@ function Header() {
         >
           <NavLink to="/">Home</NavLink>
           <NavLink to="/shop">Shop</NavLink>
-          <NavLink to="/about">About</NavLink>
-          <NavLink to="#contact">Contact</NavLink>
-         
-          {/* Pages Dropdown */}
-          {/* <div
+          <NavLink to="/men">Men</NavLink>
+          <NavLink to="/women">Women</NavLink>
+          <NavLink to="/kids">Kids</NavLink>
+
+          {/* Pages Dropdown
+          <div
             className="pages-dropdown"
             onClick={toggleDropdown}
             ref={dropdownRef}
@@ -124,25 +125,51 @@ function Header() {
                 AdminDashboard
               </NavLink>
             </div>
-            
           </div> */}
-           <div className="searchBarDiv">
+          {/* <div className="searchBarDiv">
             <SearchModal />
-          </div>
+          </div> */}
         </div>
-
+        <div
+          className="header-searchbar"
+          // onClick={() => (window.location.href = '/wishlist')}
+        >
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
         {/* <div className="searchBarDiv"><SearchModal /></div> */}
 
         {/* Icons */}
         <div className="header-icons">
           {/* <SearchModal /> */}
 
+          {/* Cart Icon */}
+          <div
+            className="header-magnifying-glass"
+            // onClick={() => (window.location.href = '/wishlist')}
+          >
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+          {/* Cart Icon */}
+          <div
+            className="header-wishlist"
+            // onClick={() => (window.location.href = '/wishlist')}
+          >
+            <i className="fa-solid fa-heart"></i>
+          </div>
+          <div
+            className="header-cart"
+            // onClick={() => (window.location.href = '/cart')}
+          >
+            <i className="fa-solid fa-cart-arrow-down"></i>
+          </div>
+
           <div
             className="dropdown-account"
             onClick={toggleAccount}
             ref={accountRef}
           >
-            <i className="fas fa-user icon"></i>
+            <i className="fa-solid fa-circle-user"></i>
+
             <div className={`dropdown-menu ${accountOpen ? 'show' : ''}`}>
               <NavLink to="/login" onClick={() => setMenuOpen(false)}>
                 Login
@@ -152,6 +179,12 @@ function Header() {
               </NavLink>
               <NavLink to="#settings" onClick={() => setMenuOpen(false)}>
                 Account
+              </NavLink>
+              <NavLink to="/about" onClick={() => setMenuOpen(false)}>
+                About
+              </NavLink>
+              <NavLink to="/contact" onClick={() => setMenuOpen(false)}>
+                Contact Us
               </NavLink>
               <NavLink to="/admin/dashboard" onClick={() => setMenuOpen(false)}>
                 AdminDashboard

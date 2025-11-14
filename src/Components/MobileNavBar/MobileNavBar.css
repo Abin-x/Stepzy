@@ -1,5 +1,6 @@
 .mobile-bottom-nav {
   display: none;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 @media (max-width: 768px) {
@@ -14,6 +15,7 @@
     border-top: 1px solid #ccc;
     z-index: 1000;
     padding: 8px 0;
+    
   }
 
   .mobile-bottom-nav .nav-item {
@@ -31,8 +33,8 @@
   }
 
   .mobile-bottom-nav .nav-item.active {
-    color: teal;
-    font-weight: bold;
+     color:#ff0000;
+
   }
 
   /* Optional: Simulated swipe indicator */

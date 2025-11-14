@@ -194,9 +194,9 @@
 
 /* ✅ Mobile View (1 grid: image left, details right) */
 @media (max-width: 500px) {
-  .product-grid {
+  /* .product-grid {
     grid-template-columns: 1fr;
-  }
+  } */
 
   .shop-container {
     padding: 20px;

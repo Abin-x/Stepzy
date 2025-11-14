@@ -5,7 +5,7 @@ import './shop.css';
 import { FaHeart, FaRegHeart, FaShoppingCart } from 'react-icons/fa';
 
 const ShopPage = () => {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState([]); 
   const [wishlist, setWishlist] = useState([]); // Track wishlist items
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
